@@ -12,6 +12,7 @@ Prometheus + Alertmanager によるアラートを、Go製のWebhookサーバー
 - **Raspberry Pi 8GB / Mac**：軽量構成で両方の実行環境に対応
 
 ## 📁 フォルダ構成
+```
 ├── alertmanager/ # Alertmanager 設定（Slack Webhook 経由）
 │ └── config.yml
 ├── docker-compose.yml # コンテナ定義
@@ -21,6 +22,7 @@ Prometheus + Alertmanager によるアラートを、Go製のWebhookサーバー
 ├── prometheus/ # Prometheus 設定
 │ └── prometheus.yml
 └── README.md
+```
 
 ## 🚀 使い方
 
@@ -33,11 +35,15 @@ Prometheus + Alertmanager によるアラートを、Go製のWebhookサーバー
 
 ```bash
 export SLACK_WEBHOOK_URL=https://hooks.slack.com/services/XXXXX/YYYYY/ZZZZZ
+```
 
 ### 3. 起動
+```
 docker-compose up --build
+```
 
 ### 4. テスト通知
+```
 curl -X POST -H "Content-Type: application/json" -d '{
   "status": "firing",
   "alerts": [
@@ -48,7 +54,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
     }
   ]
 }' http://localhost:8080
-
+```
 
 ## 📌 使用技術
 -Prometheus
