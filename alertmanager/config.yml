@@ -1,0 +1,8 @@
+global:
+  resolve_timeout: 5m
+route:
+  receiver: "slack-notifier"
+receivers:
+  - name: "slack-notifier"
+    webhook_configs:
+      - url: "http://go-slack-webhook:8080/"
