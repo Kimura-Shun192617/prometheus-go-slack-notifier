@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    volumes:
+      - ./alertmanager/config.yml:/etc/alertmanager/config.yml
+    ports:
+      - "9093:9093"
+    environment:
+      - SLACK_WEBHOOK_URL=
+
+  go-slack-webhook:
+    build: ./go-slack-webhook
+    environment:
+      - SLACK_WEBHOOK_URL=
+    ports:
+      - "8080:8080"
