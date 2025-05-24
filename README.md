@@ -57,10 +57,12 @@ curl -X POST -H "Content-Type: application/json" -d '{
 ```
 
 ## 📌 使用技術
+```
 -Prometheus
 -Alertmanager
 -Go (net/http)
 -Docker / docker-compose
+```
 
 ## 📝 備考
 Docker環境が軽量なため、Raspberry Pi 8GB 上でも動作確認済みです。
